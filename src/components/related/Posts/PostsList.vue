@@ -8,6 +8,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+
 import Post from "./Post.vue";
 
 export default Vue.extend({

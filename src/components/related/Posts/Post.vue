@@ -6,11 +6,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue, { PropType } from "vue";
+import { SinglePost } from "../../../store/posts/types";
+
 export default Vue.extend({
   name: "Post",
   props: {
-    values: Object
+    values: {
+      type: Object as PropType<SinglePost>
+    }
   }
 });
 </script>
