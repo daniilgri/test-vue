@@ -7,7 +7,9 @@ import { getters } from "./getters";
 import { mutations } from "./mutations";
 
 const initialState: PostsState = {
-  posts: []
+  posts: [],
+  error: "",
+  loading: false
 };
 
 export const posts: Module<PostsState, RootState> = {
