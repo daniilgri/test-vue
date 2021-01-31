@@ -1,21 +1,18 @@
 import { Module } from "vuex";
 
 import { RootState } from "./../types";
-import { Posts } from "./types";
+import { PostsState } from "./types";
 
-const initialState: Posts = {
-  posts: [
-    {
-      id: 0,
-      title: "The first post in this example",
-      body:
-        "Somebody ones told me the world is gonna throw me, I hated that and go away.",
-      likes: 0
-    }
-  ]
+import { getters } from "./getters";
+import { mutations } from "./mutations";
+
+const initialState: PostsState = {
+  posts: []
 };
 
-export const posts: Module<Posts, RootState> = {
+export const posts: Module<PostsState, RootState> = {
   namespaced: true,
-  state: initialState
+  state: initialState,
+  getters,
+  mutations
 };

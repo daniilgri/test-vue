@@ -8,6 +8,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapActions, mapGetters, mapState } from "vuex";
+import { PostsMutationsTypes } from "../../../store/posts/mutations";
 
 import Post from "./Post.vue";
 
@@ -17,9 +19,20 @@ export default Vue.extend({
     Post
   },
   computed: {
-    posts() {
-      return this.$store.state.posts.posts;
-    }
+    ...mapGetters({
+      getPosts: "posts/getPosts"
+    }),
+    ...mapState("posts", {
+      posts: "posts"
+    })
+  },
+  methods: {
+    ...mapActions("posts", {
+      getPostsInitial: PostsMutationsTypes.GET_POSTS_INITIAL_REQUESTED
+    })
+  },
+  created() {
+    this.getPostsInitial();
   }
 });
 </script>

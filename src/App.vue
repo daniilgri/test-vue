@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
+      <router-link to="/">All posts</router-link>
+      <router-link to="/posts/new">New post</router-link>
+      <router-link to="/posts/formulate/new">New post (Formulate)</router-link>
     </div>
     <router-view />
   </div>
@@ -23,6 +25,7 @@
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin-right: 10px;
 }
 
 #nav a.router-link-exact-active {
