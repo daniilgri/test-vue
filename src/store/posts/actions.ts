@@ -8,11 +8,11 @@ import { PostsMutationsTypes } from "./mutations";
 
 export const actions: ActionTree<PostsState, RootState> = {
   [PostsMutationsTypes.GET_POSTS_INITIAL_REQUESTED]({ commit }) {
-    console.log("action");
+    commit(PostsMutationsTypes.GET_POSTS_INITIAL_REQUESTED);
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then(response =>
-        commit(PostsMutationsTypes.GET_POSTS_INITIAL_SUCCEED, response)
+        commit(PostsMutationsTypes.GET_POSTS_INITIAL_SUCCEED, response.data)
       )
       .catch(error =>
         commit(PostsMutationsTypes.GET_POSTS_INITIAL_FAILED, error)

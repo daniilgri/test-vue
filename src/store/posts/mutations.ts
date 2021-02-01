@@ -18,15 +18,16 @@ export const mutations: MutationTree<PostsState> = {
     });
   },
   [PostsMutationsTypes.GET_POSTS_INITIAL_REQUESTED](state) {
-    console.log("mutation");
     state.loading = true;
+    state.posts = [];
+    state.error = "";
   },
   [PostsMutationsTypes.GET_POSTS_INITIAL_SUCCEED](state, payload) {
     state.loading = false;
-    console.log(payload);
+    state.posts = payload;
   },
   [PostsMutationsTypes.GET_POSTS_INITIAL_FAILED](state, payload) {
     state.loading = false;
-    console.log(payload);
+    state.error = payload;
   }
 };
