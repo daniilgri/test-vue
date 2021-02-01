@@ -2,8 +2,6 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
 import Posts from "../views/Posts.vue";
-import NewPost from "../views/NewPost.vue";
-import NewPostFormulate from "../views/NewPostFormulate.vue";
 
 Vue.use(VueRouter);
 
@@ -16,12 +14,12 @@ const routes: Array<RouteConfig> = [
   {
     path: "/posts/new",
     name: "NewPost",
-    component: NewPost
+    component: () => import("../views/NewPost.vue")
   },
   {
     path: "/posts/formulate/new",
     name: "NewPostFormulate",
-    component: NewPostFormulate
+    component: () => import("../views/NewPostFormulate.vue")
   }
 ];
 
